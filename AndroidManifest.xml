@@ -22,7 +22,7 @@
         android:theme="@style/AppTheme" >
         
         <activity
-            android:name="ua.ros.taxiapp.StartActivity"
+            android:name="ua.ros.taxiapp.activities.StartActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,15 +31,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ua.ros.taxiapp.RegisterCustomerActivity"
+            android:name="ua.ros.taxiapp.activities.RegisterCustomerActivity"
             android:label="@string/title_register_customer_activity" >
         </activity>
         <activity
-            android:name="ua.ros.taxiapp.RegisterTaxiActivity"
+            android:name = "ua.ros.taxiapp.activities.RegisterTaxiActivityaxiActivity"
             android:label="@string/title_register_taxi_activity" >
         </activity>
 		<activity
-            android:name="ua.ros.taxiapp.MainCustomerActivity"
+            android:name="ua.ros.taxiapp.activities.MainCustomerActivity"
             android:label="@string/title_main_customer_activity" >
         </activity>
 		

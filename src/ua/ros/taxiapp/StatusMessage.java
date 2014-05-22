@@ -1,5 +1,6 @@
 package ua.ros.taxiapp;
 
+// A message returned by server as an answer to POST requests
 public class StatusMessage {
 	public static final String OK = "Successfull";
     public static final String FAIL = "An error occured";

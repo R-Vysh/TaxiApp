@@ -1,5 +1,7 @@
-package ua.ros.taxiapp;
+package ua.ros.taxiapp.activities;
 
+import ua.ros.taxiapp.R;
+import ua.ros.taxiapp.R.layout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

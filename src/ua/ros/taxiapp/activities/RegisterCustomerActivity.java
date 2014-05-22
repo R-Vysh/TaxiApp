@@ -1,5 +1,10 @@
-package ua.ros.taxiapp;
+package ua.ros.taxiapp.activities;
 
+import ua.ros.taxiapp.R;
+import ua.ros.taxiapp.R.id;
+import ua.ros.taxiapp.R.layout;
+import ua.ros.taxiapp.R.string;
+import ua.ros.taxiapp.tasks.RegisterTask;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class RegisterCustomerActivity extends Activity implements OnClickListener {
-	EditText loginInput;
+	EditText mobileInput;
 	EditText passwordInput;
 	EditText confirmInput;
 	EditText usernameInput;
@@ -24,13 +29,13 @@ public class RegisterCustomerActivity extends Activity implements OnClickListene
 		setContentView(R.layout.activity_register_customer);
 		
 		usernameInput = (EditText) findViewById(R.id.username);
-		loginInput = (EditText) findViewById(R.id.mobileNum);
+		mobileInput = (EditText) findViewById(R.id.mobileNum);
 		passwordInput = (EditText) findViewById(R.id.password);
 		confirmInput = (EditText) findViewById(R.id.confirmPassword);
 		try {
 			TelephonyManager tMgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 			String mPhoneNumber = tMgr.getLine1Number();
-			loginInput.setText(mPhoneNumber);
+			mobileInput.setText(mPhoneNumber);
 		} catch (NullPointerException ex) {
 		}
 		registerButton = (Button) findViewById(R.id.registerCustomerButton);
@@ -43,13 +48,11 @@ public class RegisterCustomerActivity extends Activity implements OnClickListene
 			if ((confirmInput.getText().toString().equals(passwordInput
 					.getText().toString()))
 					&& (confirmInput.getText().toString() != "")) {
-					String url = this.getResources().getString(R.string.register_customer_url);
 					RegisterTask task = new RegisterTask(RegisterCustomerActivity.this);
 					task.setActivity(this);
-					task.execute(url, loginInput.getText().toString(),
+					task.execute(mobileInput.getText().toString(),
 					passwordInput.getText().toString(), usernameInput.getText().toString());
 			}
 		}
 	}
-
 }

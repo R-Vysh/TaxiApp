@@ -1,4 +1,4 @@
-package ua.ros.taxiapp;
+package ua.ros.taxiapp.activities;
 
 import android.app.Activity;
 import android.view.View;

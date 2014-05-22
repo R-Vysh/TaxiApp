@@ -1,4 +1,4 @@
-package ua.ros.taxiapp;
+package ua.ros.taxiapp.jsonhandlers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,28 +13,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import ua.ros.taxiapp.StatusMessage;
+
 public class StatusMessageHandler {
-	
+
 	public StatusMessage handle(JSONObject object)
 			throws ClientProtocolException, IOException {
 		StatusMessage result = new StatusMessage();
 		try {
-//			JSONObject object = (JSONObject) new JSONTokener(JSONResponse)
-//					.nextValue();
 			result.setMessage(object.getString("message"));
-//			JSONArray earthquakes = object.getJSONArray("earthquakes");
-//			
-//			for (int i = 0; i < earthquakes.length(); i++) {
-//				JSONObject tmp = (JSONObject) earthquakes.get(i);
-//				result.add(new EarthQuakeRec(
-//						tmp.getDouble("lat"),
-//						tmp.getDouble("lng"),
-//						tmp.getDouble("magnitude")));
-//			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-
 }
