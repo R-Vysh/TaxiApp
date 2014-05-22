@@ -72,7 +72,7 @@ public class RegisterTask extends AsyncTask<String, JSONObject, JSONObject> {
 					activity.finish();
 				} else {
 					Toast toast = Toast.makeText(context,
-							"An error occured while registered",
+							"An error occured while registering",
 							Toast.LENGTH_SHORT);
 					toast.show();
 				}
@@ -82,7 +82,7 @@ public class RegisterTask extends AsyncTask<String, JSONObject, JSONObject> {
 			}
 		} else {
 			Toast toast = Toast.makeText(context,
-					"An error occured while registered", Toast.LENGTH_SHORT);
+					"An error occured while registering", Toast.LENGTH_SHORT);
 			toast.show();
 		}
 	}
