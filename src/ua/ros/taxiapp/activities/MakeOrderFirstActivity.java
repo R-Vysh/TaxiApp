@@ -4,7 +4,6 @@ import ua.ros.taxiapp.R;
 import ua.ros.taxiapp.lists.AddressList;
 import ua.ros.taxiapp.tasks.FindPlaceTask;
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,6 +23,7 @@ public class MakeOrderFirstActivity extends Activity implements OnClickListener 
 		searchButton.setOnClickListener(this);
 		addressEdit = (EditText) findViewById(R.id.fromEditMakeOrderFirstActivity);
 		addressList = (AddressList) getFragmentManager().findFragmentById(R.id.searchResultFragmentMakeOrderFirstActivity);
+		
 	}
 	
 	@Override

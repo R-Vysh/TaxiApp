@@ -3,16 +3,8 @@ package ua.ros.taxiapp.tasks;
 import java.io.IOException;
 import java.util.List;
 
-import org.json.JSONObject;
-
-import ua.ros.taxiapp.activities.MainCustomerActivity;
-import ua.ros.taxiapp.activities.MainTaxistActivity;
 import ua.ros.taxiapp.activities.MakeOrderFirstActivity;
-import ua.ros.taxiapp.activities.StartActivity;
-import ua.ros.taxiapp.domain.User;
-import ua.ros.taxiapp.jsonhandlers.UserHandler;
 import android.content.Context;
-import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
@@ -57,10 +49,12 @@ public class FindPlaceTask extends AsyncTask<String, List<Address>, List<Address
 		 */
 		if (addresses != null) {
 			activity.getAddressList().setAddresses(addresses);
-			activity.getAddressList().getListAdapter().
-//			for(Address ad : addresses) {
-//			 Log.d("msg", ad.toString());
-//			}
+			//(ListAdapter) (activity.getAddressList().getListAdapter())
+			activity.getAddressList().getAdapter().setAddresses(addresses);
+			activity.getAddressList().getAdapter().notifyDataSetChanged();
+			for(Address ad : addresses) {
+			 Log.d("msg", ad.toString());
+			}
 		} else {
 			Toast toast = Toast.makeText(context,
 					"No addresses were found", Toast.LENGTH_SHORT);

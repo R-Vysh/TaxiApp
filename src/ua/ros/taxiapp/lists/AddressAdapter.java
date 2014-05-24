@@ -9,55 +9,58 @@ import android.location.Address;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class AddressAdapter extends BaseAdapter {
 
-	int layoutResourceId;
-	List<Address> addresses = null;
-	private Context context;
+    private Context fContext;
+    protected LayoutInflater fInflater;
+    protected List<Address> addresses;
 
-	public AddressAdapter(Context context, int layoutResourceId,
-			List<Address> addresses) {
+    public AddressAdapter(Context aContext, List<Address> addresses) {
+        fContext = aContext;
+        this.addresses = addresses;
+        fInflater = (LayoutInflater) fContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		super(context, layoutResourceId, addresses);
+    }
 
-		this.layoutResourceId = layoutResourceId;
-		this.context = context;
-		this.addresses = addresses;
-	}
+    public int getCount() {
+        return addresses.size();
+    }
 
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+    public Object getItem(int i) {
+        return addresses.get(i);
+    }
 
-		/*
-		 * The convertView argument is essentially a "ScrapView" as described is
-		 * Lucas post
-		 * http://lucasr.org/2012/04/05/performance-tips-for-androids-listview/
-		 * It will have a non-null value when ListView is asking you recycle the
-		 * row layout. So, when convertView is not null, you should simply
-		 * update its contents instead of inflating a new row layout.
-		 */
-		
-		if (convertView == null) {
-			// inflate the layout
-			LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-			convertView = inflater.inflate(layoutResourceId, parent, false);
-		}
+    public long getItemId(int i) {
+        return (long) i;
+    }
 
-		// object item based on the position
-		Address objectItem = addresses.get(position);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View lView = convertView;
+        if (lView == null) {
+            lView = fInflater.inflate(R.layout.list_view_row_item, parent, false);
+        }
 
-		// get the TextView and then set the text (item name) and tag (item ID)
-		// values
-		TextView textViewItem = (TextView) convertView
-				.findViewById(R.id.textViewItem);
-		textViewItem.setText(objectItem.getAdminArea());
-		textViewItem.setTag(objectItem.getCountryCode());
+        Address lRow = addresses.get(position);
+        TextView lName = (TextView) lView.findViewById(R.id.textViewItem);
+        
+        lName.setText(lRow.getCountryCode());
+        //lCompany.setText(this.getRowValueAsString(lRow, "ContactAddress", ""));
 
-		return convertView;
+        return lView;
+    }
 
-	}
+    // implementation of TableChangedListener
+    public void update() {
+        this.notifyDataSetChanged();
+    }
+    
+    public void setAddresses(List<Address> addresses) {
+    	this.addresses = addresses;
+    }
 
+    
 }

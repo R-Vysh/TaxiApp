@@ -5,30 +5,42 @@ import java.util.List;
 
 import ua.ros.taxiapp.R;
 import android.app.ListFragment;
+import android.content.Context;
 import android.location.Address;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 public class AddressList extends ListFragment {
-	List<Address> addresses = new ArrayList<Address>();
 	
-//	@Override
-//	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//			Bundle savedInstanceState) {
-//		return inflater.inflate(R.layout.fragment_address_list, null);
-//	}
+	public AddressList() {
+		super();
+	}
+
+	List<Address> addresses = new ArrayList<Address>();
+	AddressAdapter adapt;
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.fragment_address_list, null);
+	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		AddressAdapter adapter = new AddressAdapter(getActivity().getApplicationContext(), R.layout.list_view_row_item, addresses);
+		adapt = new AddressAdapter(getActivity().getApplicationContext(), addresses);
 			        
-	    this.setListAdapter(adapter);
-		//	        listViewItems.setOnItemClickListener(new OnItemClickListenerListViewItem());
-		//setListAdapter(adapter);
+	    this.setListAdapter(adapt);
+//	        listViewItems.setOnItemClickListener(new OnItemClickListenerListViewItem());
+//		//setListAdapter(adapter);
 	}
 
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
 	}
 
+	public AddressAdapter getAdapter() {
+		return adapt;
+	}
 }
