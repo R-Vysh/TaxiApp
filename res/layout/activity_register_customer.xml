@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relLayout"
+    android:id="@+id/relativeLayoutRegisterCustomer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,87 +10,91 @@
     tools:context=".StartActivity" >
 
     <TextView
-        android:id="@+id/loginLabel"
+        android:id="@+id/usernameLabelRegisterCustomerActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/mobileNum"
-        android:layout_alignBottom="@+id/mobileNum"
+        android:layout_alignBaseline="@+id/usernameInputRegisterCustomerActivity"
+        android:layout_alignBottom="@+id/usernameInputRegisterCustomerActivity"
         android:layout_alignParentLeft="true"
-        android:text="@string/phone_number" />
-
-    <TextView
-        android:id="@+id/passwordLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/password"
-        android:layout_alignBottom="@+id/password"
-        android:layout_alignParentLeft="true"
-        android:text="@string/password" />
-
-    <TextView
-        android:id="@+id/ConfirmLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/confirmPassword"
-        android:layout_alignBottom="@+id/confirmPassword"
-        android:layout_alignParentLeft="true"
-        android:text="@string/confirm_password" />
+        android:text="@string/username" />
 
     <EditText
-        android:id="@+id/confirmPassword"
+        android:id="@+id/usernameInputRegisterCustomerActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/password"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/registerCustomerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/confirmPassword"
-        android:layout_below="@+id/confirmPassword"
-        android:layout_marginTop="16dp"
-        android:text="Register" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/confirmPassword"
-        android:layout_alignLeft="@+id/mobileNum"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/usernameLabelRegisterCustomerActivity"
         android:ems="10"
         android:inputType="text" >
 
         <requestFocus />
     </EditText>
 
-    <EditText
-        android:id="@+id/mobileNum"
+    <TextView
+        android:id="@+id/mobileLabelRegisterCustomerActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/password"
-        android:layout_toRightOf="@+id/ConfirmLabel"
-        android:ems="10"
-        android:inputType="number" />
+        android:layout_alignLeft="@+id/usernameLabelRegisterCustomerActivity"
+        android:layout_below="@+id/usernameLabelRegisterCustomerActivity"
+        android:layout_marginTop="14dp"
+        android:text="@string/mobile" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/mobileInputRegisterCustomerActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/mobileNum"
-        android:layout_alignRight="@+id/mobileNum"
-        android:layout_toRightOf="@+id/ConfirmLabel"
-        android:ems="10" />
+        android:layout_alignRight="@+id/usernameInputRegisterCustomerActivity"
+        android:layout_below="@+id/usernameInputRegisterCustomerActivity"
+        android:layout_toRightOf="@+id/mobileLabelRegisterCustomerActivity"
+        android:ems="10"
+        android:inputType="phone" />
 
     <TextView
-        android:id="@+id/userLabel"
+        android:id="@+id/passwordLabelRegisterCustomerActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/username"
-        android:layout_alignBottom="@+id/username"
-        android:layout_alignLeft="@+id/loginLabel"
-        android:text="Username" />
+        android:layout_alignLeft="@+id/mobileLabelRegisterCustomerActivity"
+        android:layout_below="@+id/mobileLabelRegisterCustomerActivity"
+        android:layout_marginTop="14dp"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/passwordInputRegisterCustomerActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/passwordLabelRegisterCustomerActivity"
+        android:layout_alignRight="@+id/mobileInputRegisterCustomerActivity"
+        android:layout_below="@+id/mobileInputRegisterCustomerActivity"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/confirmLabelRegisterCustomerActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passwordLabelRegisterCustomerActivity"
+        android:layout_below="@+id/passwordLabelRegisterCustomerActivity"
+        android:layout_marginTop="16dp"
+        android:text="@string/confirm_password" />
+
+    <EditText
+        android:id="@+id/confirmInputRegisterCustomerActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/confirmLabelRegisterCustomerActivity"
+        android:layout_alignRight="@+id/passwordInputRegisterCustomerActivity"
+        android:layout_below="@+id/passwordInputRegisterCustomerActivity"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/registerCustomerButtonRegisterCustomerActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/confirmInputRegisterCustomerActivity"
+        android:layout_below="@+id/confirmInputRegisterCustomerActivity"
+        android:layout_marginTop="16dp"
+        android:text="@string/register" />
 
 </RelativeLayout>

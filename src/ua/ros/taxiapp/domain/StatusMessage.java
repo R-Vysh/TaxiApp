@@ -1,4 +1,4 @@
-package ua.ros.taxiapp;
+package ua.ros.taxiapp.domain;
 
 // A message returned by server as an answer to POST requests
 public class StatusMessage {

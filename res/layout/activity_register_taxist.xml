@@ -1,0 +1,180 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayoutRegisterTaxist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".StartActivity" >
+
+    <TextView
+        android:id="@+id/usernameLabelRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/usernameInputRegisterTaxistActivity"
+        android:layout_alignBottom="@+id/usernameInputRegisterTaxistActivity"
+        android:layout_alignParentLeft="true"
+        android:text="@string/phone_number" />
+
+    <EditText
+        android:id="@+id/usernameInputRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/usernameLabelRegisterTaxistActivity"
+        android:ems="10"
+        android:inputType="text" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/mobileLabelRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usernameLabelRegisterTaxistActivity"
+        android:layout_below="@+id/usernameLabelRegisterTaxistActivity"
+        android:layout_marginTop="14dp"
+        android:text="@string/mobile" />
+
+    <EditText
+        android:id="@+id/mobileInputRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/usernameInputRegisterTaxistActivity"
+        android:layout_below="@+id/usernameInputRegisterTaxistActivity"
+        android:layout_toRightOf="@+id/mobileLabelRegisterTaxistActivity"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/passwordLabelRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mobileLabelRegisterTaxistActivity"
+        android:layout_below="@+id/mobileLabelRegisterTaxistActivity"
+        android:layout_marginTop="14dp"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/passwordInputRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/passwordLabelRegisterTaxistActivity"
+        android:layout_alignRight="@+id/mobileInputRegisterTaxistActivity"
+        android:layout_below="@+id/mobileInputRegisterTaxistActivity"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/confirmLabelRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passwordLabelRegisterTaxistActivity"
+        android:layout_below="@+id/passwordLabelRegisterTaxistActivity"
+        android:layout_marginTop="16dp"
+        android:text="@string/confirm_password" />
+
+    <EditText
+        android:id="@+id/confirmInputRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/confirmLabelRegisterTaxistActivity"
+        android:layout_alignRight="@+id/passwordInputRegisterTaxistActivity"
+        android:layout_below="@+id/passwordInputRegisterTaxistActivity"
+        android:layout_toRightOf="@+id/confirmLabelRegisterTaxistActivity"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/brandLabelRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/confirmLabelRegisterTaxistActivity"
+        android:layout_below="@+id/confirmLabelRegisterTaxistActivity"
+        android:layout_marginTop="14dp"
+        android:text="@string/brand" />
+
+    <EditText
+        android:id="@+id/brandInputRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/brandLabelRegisterTaxistActivity"
+        android:layout_alignRight="@+id/confirmInputRegisterTaxistActivity"
+        android:layout_below="@+id/confirmInputRegisterTaxistActivity"
+        android:ems="10"
+        android:inputType="text" />
+	
+    <TextView
+        android:id="@+id/modelLabelRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/brandLabelRegisterTaxistActivity"
+        android:layout_below="@+id/brandLabelRegisterTaxistActivity"
+        android:layout_marginTop="14dp"
+        android:text="@string/model" />
+
+    <EditText
+        android:id="@+id/modelInputRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/modelLabelRegisterTaxistActivity"
+        android:layout_alignRight="@+id/brandInputRegisterTaxistActivity"
+        android:layout_below="@+id/brandInputRegisterTaxistActivity"
+        android:ems="10"
+        android:inputType="text" />
+    
+    <TextView
+        android:id="@+id/regNumberLabelRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/modelLabelRegisterTaxistActivity"
+        android:layout_below="@+id/modelLabelRegisterTaxistActivity"
+        android:layout_marginTop="14dp"
+        android:text="@string/reg_number" />
+
+    <EditText
+        android:id="@+id/regNumberInputRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/regNumberLabelRegisterTaxistActivity"
+        android:layout_alignRight="@+id/modelInputRegisterTaxistActivity"
+        android:layout_below="@+id/modelInputRegisterTaxistActivity"
+        android:layout_toRightOf="@+id/regNumberLabelRegisterTaxistActivity"
+        android:ems="10"
+        android:inputType="text"
+        tools:ignore="TextFields" />
+
+    <TextView
+        android:id="@+id/pricePerKmLabelRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/regNumberLabelRegisterTaxistActivity"
+        android:layout_below="@+id/regNumberLabelRegisterTaxistActivity"
+        android:layout_marginTop="14dp"
+        android:text="@string/price_per_km" />
+
+    <EditText
+        android:id="@+id/pricePerKmInputRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pricePerKmLabelRegisterTaxistActivity"
+        android:layout_alignRight="@+id/regNumberInputRegisterTaxistActivity"
+        android:layout_below="@+id/regNumberInputRegisterTaxistActivity"
+        android:layout_toRightOf="@+id/pricePerKmLabelRegisterTaxistActivity"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/registerTaxistButtonRegisterTaxistActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/pricePerKmInputRegisterTaxistActivity"
+        android:layout_below="@+id/pricePerKmInputRegisterTaxistActivity"
+        android:layout_marginTop="20dp"
+        android:text="@string/register" />
+    
+</RelativeLayout>

@@ -8,23 +8,23 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
-import ua.ros.taxiapp.StatusMessage;
-import ua.ros.taxiapp.activities.RegisterCustomerActivity;
-import ua.ros.taxiapp.activities.StartActivity;
+import ua.ros.taxiapp.activities.RegisterTaxistActivity;
+import ua.ros.taxiapp.domain.StatusMessage;
 import ua.ros.taxiapp.jsonhandlers.JSONParser;
 import ua.ros.taxiapp.jsonhandlers.StatusMessageHandler;
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-public class RegisterTask extends AsyncTask<String, JSONObject, JSONObject> {
-	Context context;
-	RegisterCustomerActivity activity;
-	public static final String ADDRESS = "http://mrjumpy.no-ip.biz/rest/customers/register";
+public class RegisterTaxistTask extends AsyncTask<String, JSONObject, JSONObject> {
 
-	public RegisterTask(Context context) {
+	Context context;
+	Activity activity;
+	public static final String ADDRESS = "http://mrjumpy.no-ip.biz/rest/taxists/register";
+
+	public RegisterTaxistTask(Context context) {
 		super();
 		this.context = context;
 	}
@@ -47,6 +47,10 @@ public class RegisterTask extends AsyncTask<String, JSONObject, JSONObject> {
 		nameValuePairs.add(new BasicNameValuePair("mobile", params[0]));
 		nameValuePairs.add(new BasicNameValuePair("password", params[1]));
 		nameValuePairs.add(new BasicNameValuePair("username", params[2]));
+		nameValuePairs.add(new BasicNameValuePair("brand", params[3]));
+		nameValuePairs.add(new BasicNameValuePair("model", params[4]));
+		nameValuePairs.add(new BasicNameValuePair("regNumber", params[5]));
+		nameValuePairs.add(new BasicNameValuePair("pricePerKm", params[6]));
 		// send POST request
 		JSONObject json = jParser.makeHttpRequest(ADDRESS, "POST",
 				nameValuePairs);
@@ -65,7 +69,7 @@ public class RegisterTask extends AsyncTask<String, JSONObject, JSONObject> {
 				StatusMessageHandler handler = new StatusMessageHandler();
 				StatusMessage msg = handler.handle(jsonData);
 				if (msg.getMessage().equals(StatusMessage.OK)) {
-					// Successfull. Go to start screen
+					// Successful. Go to start screen
 					Toast toast = Toast.makeText(context,
 							"Successfully registered", Toast.LENGTH_SHORT);
 					toast.show();
@@ -87,7 +91,7 @@ public class RegisterTask extends AsyncTask<String, JSONObject, JSONObject> {
 		}
 	}
 
-	public void setActivity(RegisterCustomerActivity act) {
+	public void setActivity(RegisterTaxistActivity act) {
 		this.activity = act;
 	}
 }

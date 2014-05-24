@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobileNum"
+    android:id="@+id/relativeLayoutStartActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,71 +10,83 @@
     tools:context=".StartActivity" >
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordInputStartActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/mobileNum"
+        android:layout_alignLeft="@+id/usernameInputStartActivity"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/mobileNum"
+        android:layout_below="@+id/usernameInputStartActivity"
         android:ems="10"
         android:inputType="textPassword" >
-
-        <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/mobileNum"
+        android:id="@+id/usernameInputStartActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/loginLabel"
-        android:ems="10" />
+        android:layout_toRightOf="@+id/usernameLabelStartActivity"
+        android:ems="10"
+        android:inputType="text" >
+        <requestFocus />
+    </EditText>
 
     <TextView
-        android:id="@+id/loginLabel"
+        android:id="@+id/usernameLabelStartActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/mobileNum"
-        android:layout_alignBottom="@+id/mobileNum"
+        android:layout_alignBaseline="@+id/usernameInputStartActivity"
+        android:layout_alignBottom="@+id/usernameInputStartActivity"
         android:layout_alignParentLeft="true"
-        android:text="@string/phone_number" />
+        android:text="@string/username" />
 
     <TextView
-        android:id="@+id/passwordLabel"
+        android:id="@+id/passwordLabelStartActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/password"
-        android:layout_alignBottom="@+id/password"
+        android:layout_alignBaseline="@+id/passwordInputStartActivity"
+        android:layout_alignBottom="@+id/passwordInputStartActivity"
         android:layout_alignParentLeft="true"
         android:text="@string/password" />
 
     <Button
-        android:id="@+id/goToRegisterTaxiButton"
+        android:id="@+id/signInButtonStartActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/signInButton"
-        android:text="@string/registerTaxi" />
+        android:layout_below="@+id/passwordInputStartActivity"
+        android:layout_marginTop="98dp"
+        android:text="@string/sign_in" />
 
     <Button
-        android:id="@+id/signInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/passwordLabel"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/password"
-        android:layout_marginTop="18dp"
-        android:text="Sign In" />
-
-    <Button
-        android:id="@+id/goToRegisterCustomerButton"
+        android:id="@+id/registerTaxistButtonStartActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/signInButton"
-        android:layout_centerVertical="true"
-        android:text="@string/registerCustomer" />
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/signInButtonStartActivity"
+        android:layout_marginTop="26dp"
+        android:text="@string/register_taxi" />
+
+    <Button
+        android:id="@+id/registerCustomerButtonStartActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/passwordInputStartActivity"
+        android:layout_below="@+id/registerTaxistButtonStartActivity"
+        android:layout_marginTop="20dp"
+        android:text="@string/register_customer" />
+
+    <CheckBox
+        android:id="@+id/rememberMeCheckboxStartActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordInputStartActivity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/remember_me" />
 
 </RelativeLayout>

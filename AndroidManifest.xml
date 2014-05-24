@@ -31,15 +31,35 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="ua.ros.taxiapp.activities.MainCustomerActivity"
+            android:label="@string/title_main_customer_activity" >
+        </activity>
+		<activity
+            android:name="ua.ros.taxiapp.activities.MainTaxistActivity"
+            android:label="@string/title_main_customer_activity" >
+        </activity>
+		<activity
+            android:name="ua.ros.taxiapp.activities.MakeOrderFirstActivity"
+            android:label="@string/title_main_customer_activity" >
+        </activity>
+		<activity
+            android:name="ua.ros.taxiapp.activities.MakeOrderSecondActivity"
+            android:label="@string/title_main_customer_activity" >
+        </activity>
+        <activity
             android:name="ua.ros.taxiapp.activities.RegisterCustomerActivity"
             android:label="@string/title_register_customer_activity" >
         </activity>
         <activity
-            android:name = "ua.ros.taxiapp.activities.RegisterTaxiActivityaxiActivity"
+            android:name = "ua.ros.taxiapp.activities.RegisterTaxistActivity"
             android:label="@string/title_register_taxi_activity" >
         </activity>
 		<activity
-            android:name="ua.ros.taxiapp.activities.MainCustomerActivity"
+            android:name="ua.ros.taxiapp.activities.ViewHistoryActivity"
+            android:label="@string/title_main_customer_activity" >
+        </activity>
+		<activity
+            android:name="ua.ros.taxiapp.activities.ViewMapActivity"
             android:label="@string/title_main_customer_activity" >
         </activity>
 		

@@ -1,13 +1,9 @@
 package ua.ros.taxiapp.activities;
 
 import ua.ros.taxiapp.R;
-import ua.ros.taxiapp.R.id;
-import ua.ros.taxiapp.R.layout;
-import ua.ros.taxiapp.R.string;
-import ua.ros.taxiapp.tasks.RegisterTask;
+import ua.ros.taxiapp.tasks.RegisterCustomerTask;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -30,17 +26,17 @@ public class RegisterCustomerActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register_customer);
 
-		usernameInput = (EditText) findViewById(R.id.username);
-		mobileInput = (EditText) findViewById(R.id.mobileNum);
-		passwordInput = (EditText) findViewById(R.id.password);
-		confirmInput = (EditText) findViewById(R.id.confirmPassword);
+		usernameInput = (EditText) findViewById(R.id.usernameInputRegisterCustomerActivity);
+		mobileInput = (EditText) findViewById(R.id.mobileInputRegisterCustomerActivity);
+		passwordInput = (EditText) findViewById(R.id.passwordInputRegisterCustomerActivity);
+		confirmInput = (EditText) findViewById(R.id.confirmInputRegisterCustomerActivity);
 		try {
 			TelephonyManager tMgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 			String mPhoneNumber = tMgr.getLine1Number();
 			mobileInput.setText(mPhoneNumber);
 		} catch (NullPointerException ex) {
 		}
-		registerButton = (Button) findViewById(R.id.registerCustomerButton);
+		registerButton = (Button) findViewById(R.id.registerCustomerButtonRegisterCustomerActivity);
 		registerButton.setOnClickListener(this);
 	}
 
@@ -78,7 +74,7 @@ public class RegisterCustomerActivity extends Activity implements
 				isOk = false;
 			}
 			if (isOk) {
-				RegisterTask task = new RegisterTask(
+				RegisterCustomerTask task = new RegisterCustomerTask(
 						RegisterCustomerActivity.this);
 				task.setActivity(this);
 				task.execute(mobileInput.getText().toString(), passwordInput
