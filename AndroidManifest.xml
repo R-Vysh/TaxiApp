@@ -54,6 +54,10 @@
             android:name = "ua.ros.taxiapp.activities.RegisterTaxistActivity"
             android:label="@string/title_register_taxi_activity" >
         </activity>
+        <activity
+            android:name = "ua.ros.taxiapp.activities.ShowOrderOnMapActivity"
+            android:label="@string/title_register_taxi_activity" >
+        </activity>
 		<activity
             android:name="ua.ros.taxiapp.activities.ViewHistoryActivity"
             android:label="@string/title_main_customer_activity" >

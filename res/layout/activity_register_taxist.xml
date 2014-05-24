@@ -35,8 +35,8 @@
         android:id="@+id/mobileLabelRegisterTaxistActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/usernameLabelRegisterTaxistActivity"
-        android:layout_below="@+id/usernameLabelRegisterTaxistActivity"
+        android:layout_alignLeft="@id/usernameLabelRegisterTaxistActivity"
+        android:layout_below="@id/usernameLabelRegisterTaxistActivity"
         android:layout_marginTop="14dp"
         android:text="@string/mobile" />
 
@@ -44,9 +44,9 @@
         android:id="@+id/mobileInputRegisterTaxistActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/usernameInputRegisterTaxistActivity"
-        android:layout_below="@+id/usernameInputRegisterTaxistActivity"
-        android:layout_toRightOf="@+id/mobileLabelRegisterTaxistActivity"
+        android:layout_alignRight="@id/usernameInputRegisterTaxistActivity"
+        android:layout_below="@id/usernameInputRegisterTaxistActivity"
+        android:layout_toRightOf="@id/mobileLabelRegisterTaxistActivity"
         android:ems="10"
         android:inputType="phone" />
 

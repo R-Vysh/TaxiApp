@@ -3,64 +3,60 @@ package ua.ros.taxiapp.lists;
 import java.util.List;
 
 import ua.ros.taxiapp.R;
-import android.app.Activity;
 import android.content.Context;
 import android.location.Address;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class AddressAdapter extends BaseAdapter {
 
-    private Context fContext;
-    protected LayoutInflater fInflater;
-    protected List<Address> addresses;
+	private Context context;
+	protected LayoutInflater inflater;
+	protected List<Address> addresses;
 
-    public AddressAdapter(Context aContext, List<Address> addresses) {
-        fContext = aContext;
-        this.addresses = addresses;
-        fInflater = (LayoutInflater) fContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	public AddressAdapter(Context aContext, List<Address> addresses) {
+		context = aContext;
+		this.addresses = addresses;
+		inflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-    }
+	}
 
-    public int getCount() {
-        return addresses.size();
-    }
+	public int getCount() {
+		return addresses.size();
+	}
 
-    public Object getItem(int i) {
-        return addresses.get(i);
-    }
+	public Object getItem(int i) {
+		return addresses.get(i);
+	}
 
-    public long getItemId(int i) {
-        return (long) i;
-    }
+	public long getItemId(int i) {
+		return (long) i;
+	}
 
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View lView = convertView;
-        if (lView == null) {
-            lView = fInflater.inflate(R.layout.list_view_row_item, parent, false);
-        }
+	public View getView(int position, View convertView, ViewGroup parent) {
+		View view = convertView;
+		if (view == null) {
+			view = inflater.inflate(R.layout.list_view_row_item, parent, false);
+		}
 
-        Address lRow = addresses.get(position);
-        TextView lName = (TextView) lView.findViewById(R.id.textViewItem);
-        
-        lName.setText(lRow.getCountryCode());
-        //lCompany.setText(this.getRowValueAsString(lRow, "ContactAddress", ""));
+		Address address = addresses.get(position);
+		TextView name = (TextView) view.findViewById(R.id.textViewItem);
 
-        return lView;
-    }
+		int numOfLines = address.getMaxAddressLineIndex();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < numOfLines; i++) {
+			sb.append(address.getAddressLine(i) + " ");
+		}
+		name.setText(sb.toString());
+		sb.setLength(0);
+		return view;
+	}
 
-    // implementation of TableChangedListener
-    public void update() {
-        this.notifyDataSetChanged();
-    }
-    
-    public void setAddresses(List<Address> addresses) {
-    	this.addresses = addresses;
-    }
-
-    
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
 }

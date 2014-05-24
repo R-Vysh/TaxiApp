@@ -32,7 +32,7 @@ public class FindPlaceTask extends AsyncTask<String, List<Address>, List<Address
 		Geocoder geocoder = new Geocoder(context);
 		List<Address> addresses = null;
 		try {
-			addresses = geocoder.getFromLocationName(address[0], 10);
+			addresses = geocoder.getFromLocationName(address[0], 100);
 			return addresses;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -49,7 +49,6 @@ public class FindPlaceTask extends AsyncTask<String, List<Address>, List<Address
 		 */
 		if (addresses != null) {
 			activity.getAddressList().setAddresses(addresses);
-			//(ListAdapter) (activity.getAddressList().getListAdapter())
 			activity.getAddressList().getAdapter().setAddresses(addresses);
 			activity.getAddressList().getAdapter().notifyDataSetChanged();
 			for(Address ad : addresses) {
