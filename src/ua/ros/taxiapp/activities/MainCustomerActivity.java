@@ -4,14 +4,15 @@ import ua.ros.taxiapp.R;
 import ua.ros.taxiapp.domain.User;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainCustomerActivity extends Activity implements OnClickListener {
-	User user;
 	TextView usernameLabel;
 	Button makeOrderButton;
 	Button viewHistoryButton;
@@ -22,9 +23,11 @@ public class MainCustomerActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_customer);
 		Intent intent = getIntent();
-	    user = (User)intent.getExtras().get("user");
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		
+		String username = sharedPrefs.getString("taxiAppUsername", "");
 	    usernameLabel = (TextView) findViewById(R.id.usernameLabelMainCustomerActivity);
-	    usernameLabel.setText("Signed in as " + user.getUsername());
+	    usernameLabel.setText("Signed in as " + username);
 	    makeOrderButton = (Button) findViewById(R.id.makeOrderButtonMainCustomerActivity);
 	    viewHistoryButton = (Button) findViewById(R.id.viewHistoryButtonMainCustomerActivity);
 	    viewMapButton = (Button) findViewById(R.id.viewMapButtonMainCustomerActivity);

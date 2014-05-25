@@ -16,7 +16,9 @@ import ua.ros.taxiapp.jsonhandlers.JSONParser;
 import ua.ros.taxiapp.jsonhandlers.UserHandler;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 public class SignInTask extends AsyncTask<String, JSONObject, JSONObject> {
@@ -70,6 +72,12 @@ public class SignInTask extends AsyncTask<String, JSONObject, JSONObject> {
 								activity.getApplicationContext(),
 								MainCustomerActivity.class);
 						mainIntent.putExtra("user", user);
+						SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(activity.getApplicationContext());	
+						SharedPreferences.Editor editor = sharedPrefs.edit();
+						editor.putString("taxiAppUsername", user.getUsername());
+						editor.putString("taxiAppPassword", user.getPassword());
+						editor.putString("taxiAppUserId", user.getUserId().toString());
+						editor.commit();
 						activity.startActivity(mainIntent);
 						activity.finish();
 					} else {

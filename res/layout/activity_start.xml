@@ -80,13 +80,4 @@
         android:layout_marginTop="20dp"
         android:text="@string/register_customer" />
 
-    <CheckBox
-        android:id="@+id/rememberMeCheckboxStartActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordInputStartActivity"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:text="@string/remember_me" />
-
 </RelativeLayout>

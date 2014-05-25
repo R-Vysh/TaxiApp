@@ -1,7 +1,6 @@
 package ua.ros.taxiapp.activities;
 
 import ua.ros.taxiapp.R;
-import ua.ros.taxiapp.domain.User;
 import ua.ros.taxiapp.tasks.SignInTask;
 import android.app.Activity;
 import android.content.Context;
@@ -16,10 +15,10 @@ import android.widget.EditText;
 
 public class StartActivity extends Activity implements OnClickListener {
 	Button signInButton, registerTaxiButton, registerCustomerButton;
-	CheckBox rememberMeBox;
+	
 	EditText usernameInput, passwordInput;
 	SharedPreferences sharedPrefs;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,12 +29,11 @@ public class StartActivity extends Activity implements OnClickListener {
 		registerTaxiButton = (Button) findViewById(R.id.registerTaxistButtonStartActivity);
 		registerTaxiButton.setOnClickListener(this);
 		registerCustomerButton = (Button) findViewById(R.id.registerCustomerButtonStartActivity);
-		rememberMeBox = (CheckBox) findViewById(R.id.rememberMeCheckboxStartActivity);
 		usernameInput = (EditText) findViewById(R.id.usernameInputStartActivity);
-		passwordInput  = (EditText) findViewById(R.id.passwordInputStartActivity);
+		passwordInput = (EditText) findViewById(R.id.passwordInputStartActivity);
 		registerCustomerButton.setOnClickListener(this);
-		String username = sharedPrefs.getString("taxiAppUsername","");
-		String password = sharedPrefs.getString("taxiAppPassword","");		
+		String username = sharedPrefs.getString("taxiAppUsername", "");
+		String password = sharedPrefs.getString("taxiAppPassword", "");
 		usernameInput.setText(username);
 		passwordInput.setText(password);
 	}
@@ -45,22 +43,17 @@ public class StartActivity extends Activity implements OnClickListener {
 		if (v.equals(signInButton)) {
 			String username = usernameInput.getText().toString();
 			String password = passwordInput.getText().toString();
-			if (rememberMeBox.isChecked()) {
-				SharedPreferences.Editor editor = sharedPrefs.edit();
-				editor.putString("taxiAppUsername", username);
-				editor.putString("taxiAppPassword", password);
-				editor.commit();
-			}
 			SignInTask sTask = new SignInTask(this, getApplicationContext());
 			sTask.execute(username, password);
-			
 		}
 		if (v.equals(registerTaxiButton)) {
-			Intent regIntent = new Intent(getApplicationContext(), RegisterTaxistActivity.class);
+			Intent regIntent = new Intent(getApplicationContext(),
+					RegisterTaxistActivity.class);
 			startActivity(regIntent);
 		}
 		if (v.equals(registerCustomerButton)) {
-			Intent regIntent = new Intent(getApplicationContext(), RegisterCustomerActivity.class);
+			Intent regIntent = new Intent(getApplicationContext(),
+					RegisterCustomerActivity.class);
 			startActivity(regIntent);
 		}
 	}
